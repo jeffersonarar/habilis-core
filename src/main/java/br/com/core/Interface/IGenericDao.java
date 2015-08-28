@@ -15,4 +15,6 @@ public interface IGenericDao {
     public Retorno alterar(IModel<?> entidade);
     public Retorno ativar(IModel<?> entidade);
 	public List<IModel<?>> findCriterio(IModel<?> entidade, String parametro, boolean ativo);
+	public Retorno exists(IModel<?> entidade, String parametro);
+	public Retorno buscarUsuario(IModel<?> entidade, int cpf, String senha);
 }

@@ -22,11 +22,11 @@ public class TesteEmpresa {
 		
 		Empresa empresa = new Empresa();
 		Empresa e[] = new Empresa[5];
-		e[0] = new Empresa("hdjxxxhxnx", "empresa 1",771111777,"empresa1@teste.com", "0627617-1616", true);
-		e[1] = new Empresa("hdjdxxhxnx", "empresa 2",771111722,"empresa2@teste.com", "0627617-1616", true);
-		e[2] = new Empresa("hdjdxxhxnx", "empresa 3",771111722,"empresa3@teste.com", "0627617-1616", true);
-		e[3] = new Empresa("hdjdhxxnx", "empresa 4",771111722,"empresa4@teste.com", "0627617-1616", true);
-		e[4] = new Empresa("hdjdhdxxnx", "empresa 5",771111722,"empresa5@teste.com", "0627617-1616", true);
+		e[0] = new Empresa("hdjxxxhxnx", "empresa 1","1212","empresa1@teste.com", "0627617-1616", true);
+		e[1] = new Empresa("hdjdxxhxnx", "empresa 2","771111722","empresa2@teste.com", "0627617-1616", true);
+		e[2] = new Empresa("hdjdxxhxnx", "empresa 3","771111722","empresa3@teste.com", "0627617-1616", true);
+		e[3] = new Empresa("hdjdhxxnx", "empresa 4","771111722","empresa4@teste.com", "0627617-1616", true);
+		e[4] = new Empresa("hdjdhdxxnx", "empresa 5","771111722","empresa5@teste.com", "0627617-1616", true);
 
 		for (int i = 0; i < 5; i++) {
 			empresaDao.save(e[i]);

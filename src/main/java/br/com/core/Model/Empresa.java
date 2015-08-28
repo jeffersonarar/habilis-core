@@ -27,7 +27,7 @@ public class Empresa implements IModel<Integer>{
     private String nome;
     
     @Column(name = "cnpj")
-    private Integer cnpj;
+    private String cnpj;
     
     @Column(name = "email")
     private String email;
@@ -38,7 +38,7 @@ public class Empresa implements IModel<Integer>{
 	@Column(name = "ativo")
 	private boolean ativo;
 	
-	public Empresa(String codigo_empresa, String nome, Integer cnpj, String email,
+	public Empresa(String codigo_empresa, String nome, String cnpj, String email,
 			String telefone, boolean ativo) {
 		super();
 		this.codigo_atividade_empresa = codigo_empresa;
@@ -109,11 +109,11 @@ public class Empresa implements IModel<Integer>{
 	}
 
 	
-	public Integer getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(Integer cnpj) {
+	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 

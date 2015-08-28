@@ -51,8 +51,6 @@ public class Estagiario implements IModel<Integer>{
 	@JoinColumn(name="matriz_id") 
 	private Matriz matriz;
 
-	
-	
 
 	public Estagiario(String nome, String email, String telefone, int cpf,
 			int matricula, boolean ativo, String senha, boolean acesso,

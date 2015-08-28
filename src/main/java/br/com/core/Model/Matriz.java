@@ -25,12 +25,12 @@ public class Matriz implements IModel<Integer>{
 	private String nome;
 	
 	@Column(name = "qtd_periodo")
-	private Periodo qtd_periodo;
+	private long qtd_periodo;
 	
 	@Column(name = "ativo")
 	private boolean ativo;
 	
-	public Matriz(String nome, Periodo qtd_periodo, boolean ativo) {
+	public Matriz(String nome, long qtd_periodo, boolean ativo) {
 		this.nome = nome;
 		this.qtd_periodo = qtd_periodo;
 		this.ativo = ativo;
@@ -76,11 +76,11 @@ public class Matriz implements IModel<Integer>{
 		this.nome = nome;
 	}
 
-	public Periodo getQtd_periodo() {
+	public long getQtd_periodo() {
 		return qtd_periodo;
 	}
 
-	public void setQtd_periodo(Periodo qtd_periodo) {
+	public void setQtd_periodo(long qtd_periodo) {
 		this.qtd_periodo = qtd_periodo;
 	}
 

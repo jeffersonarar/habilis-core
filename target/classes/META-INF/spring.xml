@@ -22,7 +22,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
         <property name="url"
-                  value="jdbc:postgresql://localhost:5432/contact_db?zeroDateTimeBehavior=convertToNull" />
+                  value="jdbc:postgresql://localhost:5432/next?zeroDateTimeBehavior=convertToNull" />
         <property name="username" value="postgres" />
         <property name="password" value="postgres" />
     </bean>
@@ -44,7 +44,15 @@
                 <value>br.com.core.Model.Address</value>    
                 <value>br.com.core.Model.Matriz</value>  
                 <value>br.com.core.Model.Estagiario</value>
-                <value>br.com.core.Model.Empresa</value>                 
+                <value>br.com.core.Model.Empresa</value>      
+                <value>br.com.core.Model.Atividade</value>     
+                <value>br.com.core.Model.AtividadesRealizadas</value>     
+                <value>br.com.core.Model.ContratoEstagio</value>     
+                <value>br.com.core.Model.Disciplina</value>     
+                <value>br.com.core.Model.Conteudo</value>
+                <value>br.com.core.Model.Configuracao</value>
+                <value>br.com.core.Model.Categoria</value>
+                <value>br.com.core.Model.EstagiarioAtividade</value> 
             </list>
         </property>
     </bean>

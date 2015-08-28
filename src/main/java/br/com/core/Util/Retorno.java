@@ -13,14 +13,15 @@ public class Retorno {
 	private boolean valid;
 	private List<?> list;
 	private ArrayList<Mensagem> messages;
+	private ArrayList<String> message;
 	private String mensagem;
 	private TipoMensagem tipoMensagem;
 	
-	
-	
-	public Retorno() {
+	public Retorno(){
 
 	}
+	
+	
 
 	public Retorno(boolean valid){
 		this.valid = valid;
@@ -70,6 +71,14 @@ public class Retorno {
 		this.valid = valid;
 		this.list = list;
 		this.messages = messages;
+	}
+	
+
+	public Retorno(boolean valid, ArrayList<String> message, TipoMensagem tipoMensagem){
+		this.valid = valid;
+		this.message = message;
+		this.tipoMensagem = tipoMensagem;
+		
 	}
 
 	public boolean isValid() {

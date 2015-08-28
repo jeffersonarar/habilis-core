@@ -36,7 +36,14 @@ public class MsrDAO extends GenericDAO{
     }
 
 	public List<IModel<?>> findCriterio(IModel<?> entidade, String parametro, boolean ativo) {
-		// TODO Auto-generated method stub
 		return dao.findCriterio(entidade,parametro,ativo);
+	}
+	
+	public Retorno exists(IModel<?> entidade, String parametro) {
+		return dao.exists(entidade,parametro);
+	}
+	
+	public Retorno buscarUsuario(IModel<?> entidade, int cpf, String senha) {
+		return dao.buscarUsuario(entidade, cpf, senha);
 	}
 }

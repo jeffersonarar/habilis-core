@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.core.Interface.IModel;
 
+@XmlRootElement
 @Entity
 @Table(name = "estagiario")
 public class Estagiario implements IModel<Integer>{
@@ -47,6 +49,9 @@ public class Estagiario implements IModel<Integer>{
 	@Column(name = "acesso")
 	private boolean acesso;
 	
+	@Column(name ="periodo")
+	private int periodo;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="matriz_id") 
 	private Matriz matriz;
@@ -54,7 +59,7 @@ public class Estagiario implements IModel<Integer>{
 
 	public Estagiario(String nome, String email, String telefone, int cpf,
 			int matricula, boolean ativo, String senha, boolean acesso,
-			Matriz matriz) {
+			Matriz matriz, int periodo) {
 		super();
 		this.nome = nome;
 		this.email = email;
@@ -65,13 +70,14 @@ public class Estagiario implements IModel<Integer>{
 		this.senha = senha;
 		this.acesso = acesso;
 		this.matriz = matriz;
+		this.periodo = periodo;
 	}
 
 	@Override
 	public String toString() {
 		return "Estagiario [id=" + id + ", nome=" + nome + ", email=" + email
 				+ ", telefone=" + telefone + ", cpf=" + cpf + ", matricula="
-				+ matricula + ", ativo=" + ativo + ", senha=" + senha
+				+ matricula + ", ativo=" + ativo + ", senha=" + senha + ", periodo=" + periodo
 				+ ", acesso=" + acesso + ", matriz=" + matriz + "]";
 	}
 
@@ -173,6 +179,14 @@ public class Estagiario implements IModel<Integer>{
 
 	public String getNameClass() {
 		return "Estagiario";
+	}
+
+	public int getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
 	}
 	
 	

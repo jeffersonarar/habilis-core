@@ -6,10 +6,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.core.Enum.Periodo;
 import br.com.core.Interface.IModel;
-
+@XmlRootElement
 @Entity
 @Table(name = "matriz")
 public class Matriz implements IModel<Integer>{

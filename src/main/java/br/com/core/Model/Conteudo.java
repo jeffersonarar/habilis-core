@@ -1,5 +1,7 @@
 package br.com.core.Model;
 
+import java.util.HashMap;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -93,5 +95,16 @@ public class Conteudo implements IModel<Integer>{
 
 	public String getNameClass() {
 		return "Conteudo";
+	}
+
+
+	public HashMap<String, String> getCriterios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getForeignKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

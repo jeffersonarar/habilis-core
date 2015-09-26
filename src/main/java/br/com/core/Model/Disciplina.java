@@ -1,5 +1,7 @@
 package br.com.core.Model;
 
+import java.util.HashMap;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,24 +40,29 @@ public class Disciplina implements IModel<Integer>{
 	@Column(name = "ativo")
 	private boolean ativo;
 	
+	@Column(name ="periodo")
+	private int periodo;
 
 	public Disciplina() {
 	}
 
 	public Disciplina(String nome, Double carga_horaria_total, Matriz matriz,
-			Boolean ativo) {
+			Boolean ativo, int periodo) {
 		super();
 		this.nome = nome;
 		this.carga_horaria_total = carga_horaria_total;
 		this.matriz = matriz;
+		this.periodo = periodo;
 		this.ativo = ativo;
 	}
+
+
 
 	@Override
 	public String toString() {
 		return "Disciplina [id=" + id + ", nome=" + nome
 				+ ", carga_horaria_total=" + carga_horaria_total + ", matriz="
-				+ matriz + ", ativo=" + ativo + "]";
+				+ matriz + ", ativo=" + ativo + ", periodo=" + periodo + "]";
 	}
 
 	public long getId() {
@@ -99,8 +106,28 @@ public class Disciplina implements IModel<Integer>{
 		this.ativo = ativo;
 	}
 
+	public int getPeriodo() {
+		return periodo;
+	}
+
+	public void setPeriodo(int periodo) {
+		this.periodo = periodo;
+	}
+
 	public String getNameClass() {
 		return "Disciplina";
+	}
+
+
+
+	public HashMap<String, String> getCriterios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getForeignKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

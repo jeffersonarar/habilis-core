@@ -1,6 +1,8 @@
 package br.com.core;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -38,8 +40,13 @@ public class TesteEstagiario {
 			System.out.println(est.toString());
 
 		}
+	       Map<Integer,String> mapa = new HashMap<Integer,String>();  
+	          
+	          
+	        mapa.put(1,"matriz_id");  
+
 		
-		estagiarioDao.buscarUsuario(e[4], 314457910, "tgtgw");
+		estagiarioDao.findIdForeigh(new Estagiario(), new Matriz("2012", 2, true));
 
 	}
 

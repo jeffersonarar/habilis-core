@@ -2,6 +2,7 @@
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -149,5 +150,17 @@ public class Contact implements IModel<Integer> {
 	public String getNameClass() {
 	
 		return "Contact";
+	}
+
+	
+
+	public HashMap<String, String> getCriterios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getForeignKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}    
 }

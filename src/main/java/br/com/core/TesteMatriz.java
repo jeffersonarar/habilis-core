@@ -22,13 +22,12 @@ public class TesteMatriz {
 		IGenericDao matrizDao = ctx.getBean("igenericDao", IGenericDao.class);
 		Matriz matriz = new Matriz();
 		Matriz m[] = new Matriz[5];
-		m[0] = new Matriz("Matriz 2007",12, true);
-		m[1] = new Matriz("Matriz 2009",12, true);
+		m[0] = new Matriz("Matriz 1995",12, true);
+		m[1] = new Matriz("Matriz 2000",12, true);
 		m[2] = new Matriz("Matriz 2011",12, true);
-		m[3] = new Matriz("Matriz 2013",12, true);
-		m[4] = new Matriz("Matriz 2015",12, true);
 
-		for (int i = 0; i < 5; i++) {
+
+		for (int i = 0; i < 3; i++) {
 			matrizDao.save(m[i]);
 		}
 

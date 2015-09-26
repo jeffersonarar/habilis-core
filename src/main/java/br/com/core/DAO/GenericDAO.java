@@ -1,6 +1,9 @@
 package br.com.core.DAO;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,6 +14,7 @@ import org.hibernate.criterion.Disjunction;
 import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,8 +26,7 @@ import br.com.core.Model.Estagiario;
 import br.com.core.Util.Mensagem;
 import br.com.core.Util.Retorno;
 
-
-
+@Scope
 @Transactional
 @Repository(value = "iGenericDao")
 public class GenericDAO implements IGenericDao {  
@@ -122,6 +125,18 @@ public class GenericDAO implements IGenericDao {
 	    		return results;
 		}
 		
+		
+		@SuppressWarnings("unchecked")
+		public List<IModel<?>> findIdForeigh(IModel<?> entidade, IModel<?> parametro) {
+			Criteria crit = sessionFactory.getCurrentSession().createCriteria(entidade.getClass());
+    		Criterion ativo = Restrictions.eq(parametro.getNameClass().toLowerCase(), parametro); 
+    		Disjunction disjunction = Restrictions.disjunction();
+    		disjunction.add(ativo);
+    		crit.add(disjunction); 
+    		List results = crit.list(); 
+    		return results;
+		}
+		
 		public Retorno exists(IModel<?> entidade, String parametro){
 			Retorno ret;
 			Criteria crit = sessionFactory.getCurrentSession().createCriteria(entidade.getClass());
@@ -154,13 +169,13 @@ public class GenericDAO implements IGenericDao {
     		List<Estagiario> results = crit.list(); 
     		
 			if(results.isEmpty()){
-				ret = new Retorno(false, "Usuario não existe!", TipoMensagem.ERROR);
+				ret = new Retorno(false, "Usuario nï¿½o existe!", TipoMensagem.ERROR);
 			}else{
 				for (Estagiario model: results) {
 					if(BCrypt.checkpw(senha, model.getSenha())){
-						ret = new Retorno(true, "Senha válida", TipoMensagem.SUCESSO); 
+						ret = new Retorno(true, "Senha vï¿½lida", TipoMensagem.SUCESSO); 
 					}else{
-						ret = new Retorno(false, "Senha inválida", TipoMensagem.ERROR);
+						ret = new Retorno(false, "Senha invï¿½lida", TipoMensagem.ERROR);
 					}
 			}	
 		}

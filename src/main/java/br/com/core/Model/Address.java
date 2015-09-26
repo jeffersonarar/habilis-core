@@ -1,6 +1,7 @@
 package br.com.core.Model;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -116,5 +117,16 @@ public class Address implements IModel<Integer> {
 
 	public String getNameClass() {
 		return "Address";
+	}
+
+
+	public HashMap<String, String> getCriterios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getForeignKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

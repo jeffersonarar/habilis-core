@@ -1,15 +1,20 @@
 package br.com.core.DAO;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import br.com.core.Interface.IGenericDao;
 import br.com.core.Interface.IModel;
 import br.com.core.Util.Retorno;
 
+@Scope("singleton")
 public class MsrDAO extends GenericDAO{
+	
+	
 
 	ApplicationContext ctx = new ClassPathXmlApplicationContext(
 			"META-INF/spring.xml");
@@ -37,6 +42,10 @@ public class MsrDAO extends GenericDAO{
 
 	public List<IModel<?>> findCriterio(IModel<?> entidade, String parametro, boolean ativo) {
 		return dao.findCriterio(entidade,parametro,ativo);
+	}
+	
+	public List<IModel<?>> findIdForeigh(IModel<?> entidade, IModel<?> parametro){
+		return dao.findIdForeigh(entidade,parametro);
 	}
 	
 	public Retorno exists(IModel<?> entidade, String parametro) {

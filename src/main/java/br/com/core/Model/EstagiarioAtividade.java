@@ -1,6 +1,7 @@
 package br.com.core.Model;
 
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -111,6 +112,18 @@ public class EstagiarioAtividade implements IModel<Integer>{
 	
 	public String getNameClass() {
 		return "EstagiarioAtividade";
+	}
+
+
+
+	public HashMap<String, String> getCriterios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getForeignKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

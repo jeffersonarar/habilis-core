@@ -1,6 +1,7 @@
 package br.com.core.Interface;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 public interface IModel<Entidade> extends Serializable{
 	
@@ -13,5 +14,9 @@ public interface IModel<Entidade> extends Serializable{
 	public void setAtivo(boolean ativo);
 	
 	public String getNameClass();
+	
+	public HashMap<String, String> getCriterios();
+	
+	public HashMap<String, String> getForeignKey();
 	
 }

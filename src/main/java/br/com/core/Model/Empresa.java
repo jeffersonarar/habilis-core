@@ -1,5 +1,7 @@
 package br.com.core.Model;
 
+import java.util.HashMap;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -123,6 +125,18 @@ public class Empresa implements IModel<Integer>{
 
 	public void setCodigo_atividade_empresa(String codigo_atividade_empresa) {
 		this.codigo_atividade_empresa = codigo_atividade_empresa;
+	}
+
+
+
+	public HashMap<String, String> getCriterios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getForeignKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

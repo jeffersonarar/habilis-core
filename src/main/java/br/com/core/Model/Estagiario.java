@@ -1,5 +1,7 @@
 package br.com.core.Model;
 
+import java.util.HashMap;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.core.Interface.IModel;
 
+@SuppressWarnings("restriction")
 @XmlRootElement
 @Entity
 @Table(name = "estagiario")
@@ -187,6 +190,17 @@ public class Estagiario implements IModel<Integer>{
 
 	public void setPeriodo(int periodo) {
 		this.periodo = periodo;
+	}
+
+
+	public HashMap<String, String> getCriterios() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public HashMap<String, String> getForeignKey() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

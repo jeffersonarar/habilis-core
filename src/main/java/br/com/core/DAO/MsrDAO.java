@@ -44,6 +44,10 @@ public class MsrDAO extends GenericDAO{
 		return dao.findCriterio(entidade,parametro,ativo);
 	}
 	
+	public List<IModel<?>> findCriterioEqual(IModel<?> entidade, String parametro, boolean ativo) {
+		return dao.findCriterioEqual(entidade, parametro, ativo);
+	}
+	
 	public List<IModel<?>> findIdForeigh(IModel<?> entidade, IModel<?> parametro){
 		return dao.findIdForeigh(entidade,parametro);
 	}
@@ -52,7 +56,7 @@ public class MsrDAO extends GenericDAO{
 		return dao.exists(entidade,parametro);
 	}
 	
-	public Retorno buscarUsuario(IModel<?> entidade, int cpf, String senha) {
+	public IModel<?> buscarUsuario(IModel<?> entidade, String cpf, String senha) {
 		return dao.buscarUsuario(entidade, cpf, senha);
 	}
 }

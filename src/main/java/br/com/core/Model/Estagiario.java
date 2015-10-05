@@ -38,10 +38,10 @@ public class Estagiario implements IModel<Integer>{
 	private String telefone;
 	
 	@Column(name = "cpf")
-	private int cpf;
+	private String cpf;
 	
 	@Column(name = "matricula")
-	private int matricula;
+	private String matricula;
 	
 	@Column(name = "ativo")
 	private boolean ativo;
@@ -60,8 +60,8 @@ public class Estagiario implements IModel<Integer>{
 	private Matriz matriz;
 
 
-	public Estagiario(String nome, String email, String telefone, int cpf,
-			int matricula, boolean ativo, String senha, boolean acesso,
+	public Estagiario(String nome, String email, String telefone, String cpf,
+			String matricula, boolean ativo, String senha, boolean acesso,
 			Matriz matriz, int periodo) {
 		super();
 		this.nome = nome;
@@ -111,19 +111,19 @@ public class Estagiario implements IModel<Integer>{
 		this.telefone = telefone;
 	}
 
-	public Integer getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(Integer cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
-	public Integer getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(Integer matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 
@@ -169,14 +169,6 @@ public class Estagiario implements IModel<Integer>{
 
 	public void setAcesso(boolean acesso) {
 		this.acesso = acesso;
-	}
-
-	public void setCpf(int cpf) {
-		this.cpf = cpf;
-	}
-
-	public void setMatricula(int matricula) {
-		this.matricula = matricula;
 	}
 
 

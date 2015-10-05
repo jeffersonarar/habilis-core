@@ -125,6 +125,7 @@ public class GenericDAO implements IGenericDao {
 	    		return results;
 		}
 		
+	
 		
 		@SuppressWarnings("unchecked")
 		public List<IModel<?>> findIdForeigh(IModel<?> entidade, IModel<?> parametro) {
@@ -155,8 +156,8 @@ public class GenericDAO implements IGenericDao {
 			
 		}
 	
-		public Retorno buscarUsuario(IModel<?> entidade, int cpf, String senha){
-			Retorno ret = null;
+		public IModel<?> buscarUsuario(IModel<?> entidade, String cpf, String senha){
+		
 			Criteria crit = sessionFactory.getCurrentSession().createCriteria(entidade.getClass());
 			Criterion cpf1 = Restrictions.eq("cpf", cpf);
 		//	Criterion senha1 =  Restrictions.eq("senha", senha);
@@ -169,17 +170,29 @@ public class GenericDAO implements IGenericDao {
     		List<Estagiario> results = crit.list(); 
     		
 			if(results.isEmpty()){
-				ret = new Retorno(false, "Usuario n�o existe!", TipoMensagem.ERROR);
+				entidade = null;
 			}else{
 				for (Estagiario model: results) {
 					if(BCrypt.checkpw(senha, model.getSenha())){
-						ret = new Retorno(true, "Senha v�lida", TipoMensagem.SUCESSO); 
+						entidade = model;
 					}else{
-						ret = new Retorno(false, "Senha inv�lida", TipoMensagem.ERROR);
+						entidade = null;
 					}
 			}	
 		}
-		return ret;
+			return entidade;
+		}
+
+		public List<IModel<?>> findCriterioEqual(IModel<?> entidade, String parametro, boolean ativo) {
+    		Criteria crit = sessionFactory.getCurrentSession().createCriteria(entidade.getClass());
+    		Criterion nome = Restrictions.like("nome",parametro); 
+    		Criterion ativos = Restrictions.eq("ativo", ativo); 
+    		Disjunction disjunction = Restrictions.disjunction();
+    		disjunction.add(ativos);
+    		disjunction.add(nome); 
+    		crit.add(disjunction); 
+    		List results = crit.list(); 
+    		return results;
 		}
 		
 }

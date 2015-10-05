@@ -16,6 +16,7 @@ public class EstagiarioDAO extends MsrDAO{
     	estagiario.setSenha(senha);
         return super.save(entidade);
     }
+    
 
 	public Estagiario getEstagiario() {
 		return estagiario;

@@ -41,10 +41,7 @@ public class ContratoEstagio  implements IModel<Integer>{
 	private String nome_supervisor;
 	
 	@Column(name = "cpf_supervisor")
-	private int cpf_supervisor;
-	
-	@Column(name = "telefone_supervisor")
-	private String telefone_supervisor;
+	private String cpf_supervisor;
 	
 	@Column(name = "email_supervisor")
 	private String email_supervisor;
@@ -62,15 +59,14 @@ public class ContratoEstagio  implements IModel<Integer>{
 
 
 	public ContratoEstagio(boolean ativo, Date data_inicio, Date data_fim,
-			String nome_supervisor, int cpf_supervisor,
-			String telefone_supervisor, String email_supervisor,
+			String nome_supervisor, String cpf_supervisor,
+			String email_supervisor,
 			Estagiario estagiario, Empresa empresa) {
 		this.ativo = ativo;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
 		this.nome_supervisor = nome_supervisor;
 		this.cpf_supervisor = cpf_supervisor;
-		this.telefone_supervisor = telefone_supervisor;
 		this.email_supervisor = email_supervisor;
 		this.estagiario = estagiario;
 		this.empresa = empresa;
@@ -83,8 +79,7 @@ public class ContratoEstagio  implements IModel<Integer>{
 		return "ContratoEstagio [ativo=" + ativo + ", data_inicio="
 				+ data_inicio + ", data_fim=" + data_fim + ", nome_supervisor="
 				+ nome_supervisor + ", cpf_supervisor=" + cpf_supervisor
-				+ ", telefone_supervisor=" + telefone_supervisor
-				+ ", email_supervisor=" + email_supervisor + ", estagiario="
+				+ ",email_supervisor=" + email_supervisor + ", estagiario="
 				+ estagiario + ", empresa=" + empresa + "]";
 	}
 
@@ -138,26 +133,17 @@ public class ContratoEstagio  implements IModel<Integer>{
 	public void setNome_supervisor(String nome_supervisor) {
 		this.nome_supervisor = nome_supervisor;
 	}
-
-
-	public int getCpf_supervisor() {
+	
+	public String getCpf_supervisor() {
 		return cpf_supervisor;
 	}
 
 
-	public void setCpf_supervisor(int cpf_supervisor) {
+	public void setCpf_supervisor(String cpf_supervisor) {
 		this.cpf_supervisor = cpf_supervisor;
 	}
 
 
-	public String getTelefone_supervisor() {
-		return telefone_supervisor;
-	}
-
-
-	public void setTelefone_supervisor(String telefone_supervisor) {
-		this.telefone_supervisor = telefone_supervisor;
-	}
 
 
 	public String getEmail_supervisor() {
@@ -167,6 +153,26 @@ public class ContratoEstagio  implements IModel<Integer>{
 
 	public void setEmail_supervisor(String email_supervisor) {
 		this.email_supervisor = email_supervisor;
+	}
+
+
+	public Estagiario getEstagiario() {
+		return estagiario;
+	}
+
+
+	public void setEstagiario(Estagiario estagiario) {
+		this.estagiario = estagiario;
+	}
+
+
+	public Empresa getEmpresa() {
+		return empresa;
+	}
+
+
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
 	}
 
 

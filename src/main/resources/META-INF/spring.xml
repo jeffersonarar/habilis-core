@@ -40,8 +40,6 @@
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>br.com.core.Model.Contact</value>
-                <value>br.com.core.Model.Address</value>    
                 <value>br.com.core.Model.Matriz</value>  
                 <value>br.com.core.Model.Estagiario</value>
                 <value>br.com.core.Model.Empresa</value>      

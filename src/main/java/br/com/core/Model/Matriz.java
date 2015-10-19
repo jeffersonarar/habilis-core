@@ -8,11 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.core.Enum.Periodo;
 import br.com.core.Interface.IModel;
-@XmlRootElement
+
 @Entity
 @Table(name = "matriz")
 public class Matriz implements IModel<Integer>{
@@ -21,16 +19,16 @@ public class Matriz implements IModel<Integer>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id", nullable=true)
 	private long id;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable=true)
 	private String nome;
 	
-	@Column(name = "qtd_periodo")
+	@Column(name = "qtd_periodo", nullable=true)
 	private long qtd_periodo;
 	
-	@Column(name = "ativo")
+	@Column(name = "ativo", nullable=true)
 	private boolean ativo;
 	
 	public Matriz(String nome, long qtd_periodo, boolean ativo) {

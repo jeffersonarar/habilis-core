@@ -27,17 +27,17 @@ public class Disciplina implements IModel<Integer>{
 	@Column(name = "id")
 	private long id;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable=true)
 	private String nome;
 	
-	@Column(name = "carga_horaria_total")
+	@Column(name = "carga_horaria_total", nullable=true)
 	private Double carga_horaria_total;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "matriz_id")
+	@JoinColumn(name = "matriz_id", nullable=true)
 	private Matriz matriz;
 	
-	@Column(name = "ativo")
+	@Column(name = "ativo", nullable=true)
 	private boolean ativo;
 	
 	@Column(name ="periodo")

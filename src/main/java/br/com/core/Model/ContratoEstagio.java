@@ -25,33 +25,33 @@ public class ContratoEstagio  implements IModel<Integer>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id", nullable=true)
 	private long id;
 	
-	@Column(name = "ativo")
+	@Column(name = "ativo", nullable=true)
 	private boolean ativo;
 	
-	@Column(name = "data_inicio")
+	@Column(name = "data_inicio", nullable=true)
 	private Date data_inicio;
 	
-	@Column(name = "data_fim")
+	@Column(name = "data_fim", nullable=true)
 	private Date data_fim;
 	
-	@Column(name = "nome_supervisor")
+	@Column(name = "nome_supervisor", nullable=true)
 	private String nome_supervisor;
 	
-	@Column(name = "cpf_supervisor")
+	@Column(name = "cpf_supervisor", nullable=true)
 	private String cpf_supervisor;
 	
-	@Column(name = "email_supervisor")
+	@Column(name = "email_supervisor", nullable=true)
 	private String email_supervisor;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "estagiario_id")
+	@JoinColumn(name = "estagiario_id", nullable=true)
 	private Estagiario estagiario;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "empresa_id")
+	@JoinColumn(name = "empresa_id", nullable=true)
 	private Empresa empresa;
 	
 	public ContratoEstagio() {

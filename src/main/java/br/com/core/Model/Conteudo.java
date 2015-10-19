@@ -22,17 +22,17 @@ public class Conteudo implements IModel<Integer>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id", nullable=true)
 	private long id;
 	
-	@Column(name = "ativo")
+	@Column(name = "ativo", nullable=true)
 	private boolean ativo;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable=true)
 	private String nome;
 	
 	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "disciplina_id")
+	@JoinColumn(name = "disciplina_id", nullable=true)
 	private Disciplina disciplina;
 	
 	public Conteudo() {

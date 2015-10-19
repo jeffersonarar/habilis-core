@@ -32,7 +32,7 @@ import br.com.core.Util.Retorno;
 public class GenericDAO implements IGenericDao {  
 	
 	
-	    private final Log log = LogFactory.getLog(ContactDaoImpl.class);
+	//    private final Log log = LogFactory.getLog(ContactDaoImpl.class);
 	    @Autowired
 	    private SessionFactory sessionFactory;    
 	    @SuppressWarnings("unchecked")
@@ -185,11 +185,23 @@ public class GenericDAO implements IGenericDao {
 
 		public List<IModel<?>> findCriterioEqual(IModel<?> entidade, String parametro, boolean ativo) {
     		Criteria crit = sessionFactory.getCurrentSession().createCriteria(entidade.getClass());
-    		Criterion nome = Restrictions.like("nome",parametro); 
-    		Criterion ativos = Restrictions.eq("ativo", ativo); 
+    		Criterion nome = Restrictions.and(Restrictions.eq("nome",parametro),  Restrictions.eq("ativo", ativo)); 
+
     		Disjunction disjunction = Restrictions.disjunction();
-    		disjunction.add(ativos);
+
     		disjunction.add(nome); 
+    		crit.add(disjunction); 
+    		List results = crit.list(); 
+    		return results;
+		}
+		
+		public List<IModel<?>> findCriterioEstagiario(IModel<?> entidade, String parametro, boolean ativo) {
+    		Criteria crit = sessionFactory.getCurrentSession().createCriteria(entidade.getClass());
+    		Criterion cpf = Restrictions.and(Restrictions.eq("cpf",parametro),  Restrictions.eq("ativo", ativo)); 
+
+    		Disjunction disjunction = Restrictions.disjunction();
+
+    		disjunction.add(cpf); 
     		crit.add(disjunction); 
     		List results = crit.list(); 
     		return results;

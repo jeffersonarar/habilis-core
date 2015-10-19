@@ -19,25 +19,25 @@ public class Empresa implements IModel<Integer>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")	
+    @Column(name = "id", nullable=true)	
 	private long id;
     
-    @Column(name = "codigo_empresa")
+    @Column(name = "codigo_empresa", nullable=true)
     private String codigo_atividade_empresa;
     
-    @Column(name = "nome")
+    @Column(name = "nome", nullable=true)
     private String nome;
     
-    @Column(name = "cnpj")
+    @Column(name = "cnpj", nullable=true)
     private String cnpj;
     
-    @Column(name = "email")
+    @Column(name = "email", nullable=true)
     private String email;
     
-    @Column(name = "telefone")
+    @Column(name = "telefone", nullable=true)
     private String telefone;
     
-	@Column(name = "ativo")
+	@Column(name = "ativo", nullable=true)
 	private boolean ativo;
 	
 	public Empresa(String codigo_empresa, String nome, String cnpj, String email,

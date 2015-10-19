@@ -25,25 +25,25 @@ public class Estagiario implements IModel<Integer>{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id", nullable=true)
 	private long id;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable=true)
 	private String nome;
 	
-	@Column(name = "email")
+	@Column(name = "email", nullable=true)
 	private String email;
 	
 	@Column(name = "telefone")
 	private String telefone;
 	
-	@Column(name = "cpf")
+	@Column(name = "cpf", nullable=true)
 	private String cpf;
 	
-	@Column(name = "matricula")
+	@Column(name = "matricula", nullable=true)
 	private String matricula;
 	
-	@Column(name = "ativo")
+	@Column(name = "ativo", nullable=true)
 	private boolean ativo;
 	
 	@Column(name = "senha")

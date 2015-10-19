@@ -24,16 +24,16 @@ public class Atividade  implements IModel<Integer>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
+	@Column(name = "id", nullable=true)
 	private long id;
 	
-	@Column(name = "ativo")
+	@Column(name = "ativo", nullable=true)
 	private boolean ativo;
 	
-	@Column(name = "nome")
+	@Column(name = "nome", nullable=true)
 	private String nome;
 	
-	@Column(name = "descricao")
+	@Column(name = "descricao", nullable=true)
 	private String descricao;
 	
 	@Column(name = "aprovado")

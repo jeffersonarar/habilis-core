@@ -22,4 +22,5 @@ public interface IGenericDao {
 	public IModel<?> buscarUsuario(IModel<?> entidade, String cpf, String senha);
 	public List<IModel<?>> findIdForeigh(IModel<?> entidade, IModel<?> parametro);
 	public List<IModel<?>> findCriterioEqual(IModel<?> entidade, String parametro, boolean ativo);
+	public List<IModel<?>> findCriterioEstagiario(IModel<?> entidade, String parametro, boolean ativo);
 }

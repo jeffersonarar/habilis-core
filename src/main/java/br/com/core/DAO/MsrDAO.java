@@ -64,4 +64,8 @@ public class MsrDAO extends GenericDAO{
 	public IModel<?> buscarUsuario(IModel<?> entidade, String cpf, String senha) {
 		return dao.buscarUsuario(entidade, cpf, senha);
 	}
+	
+	public IModel<?> buscarPorId(IModel<?> entidade, long id){
+		return dao.buscarPorId(entidade, id);
+	}
 }

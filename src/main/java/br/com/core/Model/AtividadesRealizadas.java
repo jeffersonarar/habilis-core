@@ -28,15 +28,15 @@ public class AtividadesRealizadas  implements IModel<Integer>{
 	@Column(name = "id")
 	private long id;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "atividade_id")
 	private Atividade atividade;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "conteudo_id")
 	private Conteudo conteudo;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "contrato_estagio_id")
 	private ContratoEstagio contratoEstagio;
 	

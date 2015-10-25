@@ -58,10 +58,15 @@ public class ContratoEstagio  implements IModel<Integer>{
 	}
 
 
-	public ContratoEstagio(boolean ativo, Date data_inicio, Date data_fim,
-			String nome_supervisor, String cpf_supervisor,
-			String email_supervisor,
-			Estagiario estagiario, Empresa empresa) {
+
+	
+	
+
+	public ContratoEstagio(long id, boolean ativo, Date data_inicio,
+			Date data_fim, String nome_supervisor, String cpf_supervisor,
+			String email_supervisor, Estagiario estagiario, Empresa empresa) {
+		super();
+		this.id = id;
 		this.ativo = ativo;
 		this.data_inicio = data_inicio;
 		this.data_fim = data_fim;
@@ -72,7 +77,6 @@ public class ContratoEstagio  implements IModel<Integer>{
 		this.empresa = empresa;
 	}
 
-	
 
 	@Override
 	public String toString() {

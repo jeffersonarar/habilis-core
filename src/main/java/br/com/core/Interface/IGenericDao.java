@@ -23,4 +23,6 @@ public interface IGenericDao {
 	public List<IModel<?>> findIdForeigh(IModel<?> entidade, IModel<?> parametro);
 	public List<IModel<?>> findCriterioEqual(IModel<?> entidade, String parametro, boolean ativo);
 	public List<IModel<?>> findCriterioEstagiario(IModel<?> entidade, String parametro, boolean ativo);
+	public IModel<?> buscarPorId(IModel<?> entidade, long id);
+	
 }

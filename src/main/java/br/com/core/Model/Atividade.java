@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.Transient;
+
 import br.com.core.Interface.IModel;
 
 
@@ -43,6 +45,15 @@ public class Atividade  implements IModel<Integer>{
     @JoinColumn(name="categoria_id")
 	private Categoria categoria;
        
+	
+
+    @Transient
+	private Integer qtd;
+    
+    
+    @Transient
+    private String d_nome;
+	
 	public Atividade() {
 		super();
 	}
@@ -138,6 +149,22 @@ public class Atividade  implements IModel<Integer>{
 	public HashMap<String, String> getForeignKey() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public Integer getQtd() {
+		return qtd;
+	}
+
+	public void setQtd(Integer qtd) {
+		this.qtd = qtd;
+	}
+
+	public String getD_nome() {
+		return d_nome;
+	}
+
+	public void setD_nome(String d_nome) {
+		this.d_nome = d_nome;
 	}
 	
 	

@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.data.annotation.Transient;
+
 import br.com.core.Interface.IModel;
 
 @SuppressWarnings("serial")
@@ -43,6 +45,10 @@ public class Disciplina implements IModel<Integer>{
 	@Column(name ="periodo")
 	private int periodo;
 
+    @Transient
+	private Integer qtd;
+    
+    
 	public Disciplina() {
 	}
 
@@ -128,6 +134,14 @@ public class Disciplina implements IModel<Integer>{
 	public HashMap<String, String> getForeignKey() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public Integer getQtd() {
+		return qtd;
+	}
+
+	public void setQtd(Integer qtd) {
+		this.qtd = qtd;
 	}
 
 	

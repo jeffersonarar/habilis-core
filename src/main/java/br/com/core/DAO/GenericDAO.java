@@ -1,17 +1,13 @@
 package br.com.core.DAO;
 
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
+import org.hibernate.SQLQuery;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Disjunction;
-import org.hibernate.criterion.LogicalExpression;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -22,9 +18,11 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.core.Enum.TipoMensagem;
 import br.com.core.Interface.IGenericDao;
 import br.com.core.Interface.IModel;
+import br.com.core.Model.Configuracao;
+import br.com.core.Model.Conteudo;
 import br.com.core.Model.ContratoEstagio;
+import br.com.core.Model.Disciplina;
 import br.com.core.Model.Estagiario;
-import br.com.core.Util.Mensagem;
 import br.com.core.Util.Retorno;
 
 @Scope
@@ -192,6 +190,31 @@ public class GenericDAO implements IGenericDao {
 		return entidade;
 	}
 
+	public IModel<?> buscarUsuarioConfiguracao(IModel<?> entidade, String nome,
+			String senha) {
+
+		Criteria crit = sessionFactory.getCurrentSession().createCriteria(
+				entidade.getClass());
+		Criterion cpf1 = Restrictions.eq("nome", nome);
+		Criterion senha1 = Restrictions.eq("senha", senha);
+		// LogicalExpression andExp = Restrictions.and(cpf1, senha1);
+
+		Disjunction disjunction = Restrictions.disjunction();
+		disjunction.add(cpf1);
+		disjunction.add(senha1);
+		crit.add(disjunction);
+		List<Configuracao> results = crit.list();
+
+		if (results.isEmpty()) {
+			entidade = null;
+		} else {
+			for (Configuracao model : results) {
+				entidade = model;
+			}
+		}
+		return entidade;
+	}
+
 	public List<IModel<?>> findCriterioEqual(IModel<?> entidade,
 			String parametro, boolean ativo) {
 		Criteria crit = sessionFactory.getCurrentSession().createCriteria(
@@ -240,6 +263,12 @@ public class GenericDAO implements IGenericDao {
 			}
 		}
 		return entidade;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<IModel<?>> criadordeSql(String sql, IModel<?> entidade) {
+		List results = sessionFactory.getCurrentSession().createSQLQuery(sql).addEntity(entidade.getClass()).list();
+		return results;
 	}
 
 }

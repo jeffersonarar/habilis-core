@@ -36,6 +36,17 @@ public class Configuracao implements IModel<Integer>{
 	
 
 	
+	public Configuracao() {
+		super();
+	}
+
+
+	public Configuracao(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+
 	public int getQtd_associacao_ativada() {
 		return qtd_associacao_ativada;
 	}
@@ -100,4 +111,6 @@ public class Configuracao implements IModel<Integer>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
 }

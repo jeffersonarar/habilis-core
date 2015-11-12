@@ -33,7 +33,7 @@ public class Conteudo implements IModel<Integer>{
 	@Column(name = "nome", nullable=true)
 	private String nome;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "disciplina_id", nullable=true)
 	private Disciplina disciplina;
 	

@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.core.Enum.TipoMensagem;
 import br.com.core.Interface.IGenericDao;
 import br.com.core.Interface.IModel;
+import br.com.core.Model.AtividadesRealizadas;
 import br.com.core.Model.Configuracao;
 import br.com.core.Model.Conteudo;
 import br.com.core.Model.ContratoEstagio;
@@ -46,6 +47,7 @@ public class GenericDAO implements IGenericDao {
 
 		try {
 			entidade.setAtivo(true);
+			sessionFactory.getCurrentSession().clear();
 			sessionFactory.getCurrentSession().save(entidade);
 			ret = new Retorno(true, entidade.getNameClass()
 					+ " salvo com sucesso!", TipoMensagem.SUCESSO);
@@ -180,15 +182,42 @@ public class GenericDAO implements IGenericDao {
 			entidade = null;
 		} else {
 			for (Estagiario model : results) {
-				if (BCrypt.checkpw(senha, model.getSenha())) {
+				//if (BCrypt.checkpw(senha, model.getSenha())) {
 					entidade = model;
-				} else {
+				/*} else {
 					entidade = null;
-				}
+				}*/
 			}
 		}
 		return entidade;
 	}
+	
+	
+	public IModel<?> buscarUsuarioCPF(IModel<?> entidade, String cpf) {
+
+		Criteria crit = sessionFactory.getCurrentSession().createCriteria(
+				entidade.getClass());
+		Criterion cpf1 = Restrictions.eq("cpf", cpf);
+		// Criterion senha1 = Restrictions.eq("senha", senha);
+		// LogicalExpression andExp = Restrictions.and(cpf1, senha1);
+
+		Disjunction disjunction = Restrictions.disjunction();
+		disjunction.add(cpf1);
+		// disjunction.add(andExp);
+		crit.add(disjunction);
+		List<Estagiario> results = crit.list();
+
+		if (results.isEmpty()) {
+			entidade = null;
+		} else {
+			for (Estagiario model : results) {
+					entidade = model;
+			}
+		}
+		return entidade;
+	}
+	
+	
 
 	public IModel<?> buscarUsuarioConfiguracao(IModel<?> entidade, String nome,
 			String senha) {
@@ -264,6 +293,22 @@ public class GenericDAO implements IGenericDao {
 		}
 		return entidade;
 	}
+	
+	
+	public List<IModel<?>> buscarPorAtividades(IModel<?> entidade, IModel<?> parametro) {
+
+		Criteria crit = sessionFactory.getCurrentSession().createCriteria(
+				entidade.getClass());
+		Criterion ativo = Restrictions.and(Restrictions.eq("contratoEstagio", parametro), Restrictions.eq("aprovado", "sim"));
+	
+		Disjunction disjunction = Restrictions.disjunction();
+		disjunction.add(ativo);
+		crit.add(disjunction);
+		List results = crit.list();
+		return results;
+	}
+	
+	
 
 	@SuppressWarnings("unchecked")
 	public List<IModel<?>> criadordeSql(String sql, IModel<?> entidade) {

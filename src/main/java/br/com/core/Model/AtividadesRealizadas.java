@@ -28,15 +28,15 @@ public class AtividadesRealizadas  implements IModel<Integer>{
 	@Column(name = "id")
 	private long id;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "atividade_id")
 	private Atividade atividade;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "conteudo_id")
 	private Conteudo conteudo;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "contrato_estagio_id")
 	private ContratoEstagio contratoEstagio;
 	
@@ -47,7 +47,7 @@ public class AtividadesRealizadas  implements IModel<Integer>{
 	private Date data_fim;
 	
 	@Column(name = "aprovado")
-	private boolean aprovado;
+	private String aprovado;
 	
 	@Column(name = "data_cadastro")
 	private Date data_cadastro;
@@ -55,12 +55,15 @@ public class AtividadesRealizadas  implements IModel<Integer>{
 	@Column(name = "ativo")
 	private boolean ativo;
 	
+	
+
+	
 	public AtividadesRealizadas() {
 	}
 
 	public AtividadesRealizadas(Atividade atividade, Conteudo conteudo,
 			ContratoEstagio contratoEstagio, Date data_inicio, Date data_fim,
-			boolean aprovado, Date data_cadastro, boolean ativo) {
+			String aprovado, Date data_cadastro, boolean ativo) {
 		this.atividade = atividade;
 		this.conteudo = conteudo;
 		this.contratoEstagio = contratoEstagio;
@@ -80,8 +83,6 @@ public class AtividadesRealizadas  implements IModel<Integer>{
 				+ ", data_cadastro=" + data_cadastro + ", ativo=" + ativo + "]";
 	}
 
-	
-	
 	
 	public Atividade getAtividade() {
 		return atividade;
@@ -123,11 +124,11 @@ public class AtividadesRealizadas  implements IModel<Integer>{
 		this.data_fim = data_fim;
 	}
 
-	public boolean getAprovado() {
+	public String getAprovado() {
 		return aprovado;
 	}
 
-	public void setAprovado(boolean aprovado) {
+	public void setAprovado(String aprovado) {
 		this.aprovado = aprovado;
 	}
 

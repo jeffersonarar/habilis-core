@@ -44,4 +44,9 @@ public interface IGenericDao {
 	
 	public List<IModel<?>> criadordeSql(String sql, IModel<?> entidade);
 
+	
+	public List<IModel<?>> buscarPorAtividades(IModel<?> entidade, IModel<?> entidade2);
+	
+	public IModel<?> buscarUsuarioCPF(IModel<?> entidade, String cpf);
+	
 }

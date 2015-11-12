@@ -9,6 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import br.com.core.Interface.IGenericDao;
 import br.com.core.Interface.IModel;
+import br.com.core.Model.ContratoEstagio;
 import br.com.core.Util.Retorno;
 
 @Scope("singleton")
@@ -65,6 +66,11 @@ public class MsrDAO extends GenericDAO{
 		return dao.buscarUsuario(entidade, cpf, senha);
 	}
 	
+	public IModel<?> buscarUsuarioCPF(IModel<?> entidade, String cpf) {
+		return dao.buscarUsuarioCPF(entidade, cpf);
+	}
+	
+	
 	public IModel<?> buscarPorId(IModel<?> entidade, long id){
 		return dao.buscarPorId(entidade, id);
 	}
@@ -76,5 +82,9 @@ public class MsrDAO extends GenericDAO{
     
 	public List<IModel<?>> criadordeSql(String sql, IModel<?> entidade){
 		return dao.criadordeSql(sql, entidade);
+	}
+	
+	public List<IModel<?>> buscarPorAtividades(IModel<?> entidade, long id){
+		return dao.buscarPorAtividades(entidade, buscarPorId(new ContratoEstagio(), id));
 	}
 }
